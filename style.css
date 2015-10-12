@@ -4,8 +4,8 @@ h1 {
 
 .boardgameBoxes {
   border: solid black 5px;
-  margin-left: 50px;
-  margin-right: 50px;
+  margin-left: 395px;
+  margin-right: 395px;
 }
 
 
@@ -16,6 +16,20 @@ h1 {
   border: black 2px solid;
   display: inline-block;
   margin: 8px;
+  font-size: 22px;
+  color: black;
+}
+
+.display{
+  background-color: white;
+  width: 30px;
+  height: 30px;
+  border: black 2px solid;
+  display: inline-block;
+  margin: 8px;
+  font-size: 22px;
+  color: black;
+  text-align:center;
 }
 
 .goal{
@@ -29,12 +43,24 @@ h1 {
 
 .toprow{
   margin-top: 20px;
-  margin-bottom: -116px;
+  margin-bottom: -70px;
+  text-align: center;
 }
 
-/*.bottomrow{
+
+.bottomrow{
   margin-top: 50px;
-}*/
+  text-align: center;
+}
+
+.stone{
+  background-color: white;
+  width: 20px;
+  height: 20px;
+  border: black 2px solid;
+  display: inline-block;
+  margin: 8px;
+}
 
 #goal1{
   float: left;

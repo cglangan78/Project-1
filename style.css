@@ -16,6 +16,8 @@ h1 {
   border: black 2px solid;
   display: inline-block;
   margin: 8px;
+  text-align: center;
+  font-size: 45px;
 }
 
 .goal{
@@ -34,12 +36,12 @@ h1 {
   margin-top: 50px;
 }
 
-#box3{
+.goal-right{
   float:right;
   height: 150px;
 }
 
-#box6{
+.goal-left{
   float: left;
   height: 150px;
 }

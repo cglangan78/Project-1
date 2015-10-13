@@ -26,6 +26,7 @@ h1 {
   border: black 2px solid;
   display: inline-block;
   margin: 8px;
+  pointer-events: none;
 }
 
 .toprow{
@@ -44,4 +45,16 @@ h1 {
 .goal-left{
   float: left;
   height: 150px;
+}
+
+.highlight {
+   background: lightgrey;
+}
+
+.noHighlight{
+  background: white;
+}
+
+.noClick{
+  pointer-events: none;
 }

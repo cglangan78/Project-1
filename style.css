@@ -4,8 +4,8 @@ h1 {
 
 .boardgameBoxes {
   border: solid black 5px;
-  margin-left: 250px;
-  margin-right: 250px;
+  margin-left: 300px;
+  margin-right: 300px;
 }
 
 
@@ -17,7 +17,7 @@ h1 {
   display: inline-block;
   margin: 8px;
   text-align: center;
-  font-size: 45px;
+  font-size: 100px;
 }
 
 .goal{
@@ -39,12 +39,15 @@ h1 {
 
 .goal-right{
   float:right;
-  height: 150px;
+  height: 250px;
+  margin-top: -111px;
+  margin-right: 54px;
 }
 
 .goal-left{
   float: left;
-  height: 150px;
+  height: 250px;
+  margin-top: 21px;
 }
 
 .highlight {

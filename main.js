@@ -42,31 +42,44 @@ $('.box').click(function() {
 $(".box").each(function(){
   $(this).click(function(){
    if ((spot4.text() === '0') && (spot5.text() === '0')) {
-      console.log("top row empty")
+      var a = parseInt(spot1.text());
+      var b = parseInt(spot2.text());
+      var c = parseInt(goalLeft.text());
+      var total = parseInt(a + b + c);
+      goalLeft.text(total);
+      spot1.text(0);
+      spot2.text(0);
           if(goalLeft.text() > goalRight.text()) {
-            alert("Player 2 Wins")
-            window.location.reload(true);
+            console.log("Player 2 Wins")
+            // window.location.reload(true);
           }
           else if(goalLeft.text() < goalRight.text()) {
-            alert("Player 1 Wins")
-            window.location.reload(true);
+            console.log("Player 1 Wins")
+            // window.location.reload(true);
           }else{
-            alert("Player 1 and Player 2 Tie")
-            window.location.reload(true);
+            console.log("Player 1 and Player 2 Tie")
+            // window.location.reload(true);
           }
   } else if ((spot1.text() === '0') && (spot2.text() === '0')) {
-      console.log("bottom row empty")
-          if(goalLeft.text() < goalRight.text()) {
-            alert("Player 2 Wins")
-            window.location.reload(true);
-          }
-          else if(goalLeft.text() > goalRight.text()) {
-            alert("Player 2 Wins")
-            window.location.reload(true);
-          }else{
-            alert("Player 1 and Player 2 Tie")
-            window.location.reload(true);
-          }
+    var a = parseInt(spot5.text());
+    var b = parseInt(spot4.text());
+    var c = parseInt(goalRight.text());
+    var total = parseInt(a + b + c);
+    goalRight.text(total);
+    spot5.text(0);
+    spot4.text(0);
+
+      if(goalLeft.text() < goalRight.text()) {
+        console.log("Player 1 Wins")
+        // window.location.reload(true);
+      }
+      else if(goalLeft.text() > goalRight.text()) {
+        console.log("Player 2 Wins")
+        // window.location.reload(true);
+      }else{
+        console.log("Player 1 and Player 2 Tie")
+        // window.location.reload(true);
+      }
     }
   })
 })

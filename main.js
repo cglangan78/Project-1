@@ -32,11 +32,14 @@ $(".box").each(function(index){
                          targetCount++;
                          $("#" + targetId).text(targetCount);
 
-                    //skip other players goal
+                    //skip other players goal + double add to other players first spot
                      if(targetId === 0){
                         var goal = parseInt(goalLeft.text());
                         var total = (goal - 1);
                         goalLeft.text(total);
+                        var unLucky = parseInt(spot1.text());
+                        var unLuckyTotal = (unLucky + 1);
+                        spot1.text(unLuckyTotal);
                      }
                     //if the stone count goes over 14 - original spot value goes to 1
                     if (stone_count >= 14){
@@ -59,6 +62,9 @@ $(".box").each(function(index){
                           var goal = parseInt(goalRight.text());
                           var total = (goal - 1);
                           goalRight.text(total);
+                          var unLucky = parseInt(spot8.text());
+                          var unLuckyTotal = (unLucky + 1);
+                          spot8.text(unLuckyTotal);
                        }
 
                       if (stone_count >= 14){

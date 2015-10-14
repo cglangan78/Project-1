@@ -21,6 +21,9 @@
 // //for loop to click on each box in the array
 // $(".box").each(function(index){
 //    $(this).click(function(){
+        // if($(this).text() === '0'){
+        //     console.log("no")
+        //  } else {
 //      if($(this).hasClass("highlight")){
 //        var stone_count = parseInt($(this).text());
 //          var id = parseInt($(this).attr('id'));
@@ -141,22 +144,29 @@ var goalLeft = $('#0');
 //for loop to click on each box in the array
 $(".box").each(function(index){
    $(this).click(function(){
-     if($(this).hasClass("highlight")){
-       var stone_count = parseInt($(this).text());
-         var id = parseInt($(this).attr('id'));
-         for(var i = stone_count; i >=1; i--){
-           var targetId = (id+i)%boardSize;
-           var targetCount = parseInt($('#'+targetId).text());
-           var targetCount = parseInt($('#'+targetId).text());
-                 targetCount++;
-                 $("#" + targetId).text(targetCount);
+     if($(this).text() === '0'){
+         console.log("no")
+      } else {
+           if($(this).hasClass("highlight")){
+                   var stone_count = parseInt($(this).text());
+                     var id = parseInt($(this).attr('id'));
+                     for(var i = stone_count; i >=1; i--){
+                       var targetId = (id+i)%boardSize;
+                       var targetCount = parseInt($('#'+targetId).text());
+                             targetCount++;
+                             $("#" + targetId).text(targetCount);
+                    if (stone_count >= 13){
+                      $(this).text(1);
+                    }else{
+                      $(this).text(0);
+                    }
+                  }
+                count++;
+            }
 
-                }
-          $(this).text(0);
-          count++;
-        }
-    })
+      }
   })
+})
 
 
 //pick player - highlighed boxes determine turn - dont let highlight change
@@ -173,7 +183,6 @@ $('.box').click(function() {
 
 
 
-
 //find winner - add remaining stones to winners score
 $(".box").each(function(){
   $(this).click(function(){
@@ -185,9 +194,9 @@ $(".box").each(function(){
       var d = parseInt(spot11.text());
       var e = parseInt(spot12.text());
       var f = parseInt(spot13.text());
-      var g = parseInt(goalLeft.text());
+      var g = parseInt(goalRight.text());
       var total = parseInt(a + b + c + d + e + f + g);
-      goalLeft.text(total);
+      goalRight.text(total);
       spot8.text(0);
       spot9.text(0);
       spot10.text(0);

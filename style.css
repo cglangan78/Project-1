@@ -4,8 +4,8 @@ h1 {
 
 .boardgameBoxes {
   border: solid black 5px;
-  margin-left: 300px;
-  margin-right: 300px;
+  margin-left: 25px;
+  margin-right: 25px;
 }
 
 
@@ -31,23 +31,29 @@ h1 {
 
 .toprow{
   margin-top: 20px;
+  padding: 4px;
+  margin-bottom: 12px;
 }
 
 .bottomrow{
   margin-top: 50px;
+  padding: 4px;
+  margin-top: 19px;
 }
 
 .goal-right{
   float:right;
   height: 250px;
   margin-top: -111px;
-  margin-right: 54px;
+  margin-top: -123px;
+  margin-right: 34px;
 }
 
 .goal-left{
   float: left;
   height: 250px;
   margin-top: 21px;
+  margin-right: 20px;
 }
 
 .highlight {

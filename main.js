@@ -1,10 +1,10 @@
 //Global variables
 var $boxes = $('.box');
 var boardSize = 6;
-var topRight = $('#4');
-var topLeft = $('#5');
-var bottomRight = $('#1');
-var bottomLeft = $('#2');
+var spot4 = $('#4');
+var spot5 = $('#5');
+var spot1 = $('#1');
+var spot2 = $('#2');
 var goalLeft = $('#0');
 var goalRight = $('#3');
 
@@ -41,7 +41,7 @@ $('.box').click(function() {
 //find winner
 $(".box").each(function(){
   $(this).click(function(){
-   if ((topRight.text() === '0') && (topLeft.text() === '0')) {
+   if ((spot4.text() === '0') && (spot5.text() === '0')) {
       console.log("top row empty")
           if(goalLeft.text() > goalRight.text()) {
             alert("Player 2 Wins")
@@ -54,7 +54,7 @@ $(".box").each(function(){
             alert("Player 1 and Player 2 Tie")
             window.location.reload(true);
           }
-  } else if ((bottomRight.text() === '0') && (bottomLeft.text() === '0')) {
+  } else if ((spot1.text() === '0') && (spot2.text() === '0')) {
       console.log("bottom row empty")
           if(goalLeft.text() < goalRight.text()) {
             alert("Player 2 Wins")

@@ -16,6 +16,7 @@ $(".box").each(function(index){
          var id = parseInt($(this).attr('id'));
          for(var i = stone_count; i >=1; i--){
            var targetId = (id+i)%boardSize;
+           console.log("wtf did he do",targetId);
            var targetCount = parseInt($('#'+targetId).text());
              targetCount++;
              $("#" + targetId).text(targetCount);
@@ -38,7 +39,7 @@ $('.box').click(function() {
      notSelected.toggleClass("highlight", count%2 !== 0);
 });
 
-//find winner
+//find winner - add remaining stones to winners score
 $(".box").each(function(){
   $(this).click(function(){
    if ((spot4.text() === '0') && (spot5.text() === '0')) {

@@ -15,7 +15,7 @@ var spot11 = $('#11');
 var spot12 = $('#12');
 var spot13 = $('#13');
 var goalLeft = $('#0');
-var winnerSpot = $('#winnerPlacement');
+var winnerSpot = $('#winnerSpot');
 
 
 //for loop to click on each box in the array
@@ -128,14 +128,14 @@ $(".box").each(function(){
       spot13.text(0);
           if(goalLeft.text() > goalRight.text()) { //if player 2 has more stones than player 1 = player 2 wins
             winnerSpot.text("Player 2 Wins!!!");
-            // window.location.reload(true);
+            console.log("a")
           }
-          else if(goalLeft.text() < goalRight.text()) { //if player 1 has more stones than player 2 = player 1 wins
+          else if (goalLeft.text() < goalRight.text()) { //if player 1 has more stones than player 2 = player 1 wins
             winnerSpot.text("Player 1 Wins!!!");
-            // window.location.reload(true);
+            console.log("b")
           }else{
             winnerSpot.text("It's a Tie!!!"); //if equal amount of stones = tie!
-            // window.location.reload(true);
+            console.log("c")
           }
   } else if ((spot8.text() === '0') && (spot9.text() === '0') && (spot10.text() === '0') //checking if toprow stone count is 0
       && (spot11.text() === '0') && (spot12.text() === '0') && (spot13.text() === '0')) {
@@ -156,15 +156,15 @@ $(".box").each(function(){
       spot6.text(0);
 
       if(goalLeft.text() < goalRight.text()) { //if player 1 has more stones than player 2, player 1 wins
-        winnerSpot.text("Player 1 Wins!!!")
-        // window.location.reload(true);
+        winnerSpot.text("Player 1 Wins!!!");
+        console.log("d")
       }
       else if(goalLeft.text() > goalRight.text()) { //if player 2 has more stones than player 1, player 2 wins
-        winnerSpot.text("Player 2 Wins!!!")
-        // window.location.reload(true);
+        winnerSpot.text("Player 2 Wins!!!");
+        console.log("e")
       }else{
-        winnerSpot.text("It's a Tie!!!") //if the scores are the same, the players tie!
-        // window.location.reload(true);
+        winnerSpot.text("It's a Tie!!!"); //if the scores are the same, the players tie!
+        console.log("f")
       }
     }
   })

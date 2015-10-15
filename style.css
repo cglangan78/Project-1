@@ -1,15 +1,26 @@
 h1 {
-  color: purple;
+  color: #612061;
+  text-align: center;
 }
 
 .boardgameBoxes {
+  border-radius: 10px;
   border: solid black 5px;
   margin-left: 25px;
   margin-right: 25px;
+  background: white;
 }
 
+@media ( max-width: 1200px) {
+  .box {
+    width: 50px;
+    height: 50px;
+  }
+}
 
 .box {
+  color: rgba(0, 0, 0, 1);
+  cursor: pointer;
   background-color: white;
   width: 100px;
   height: 100px;
@@ -27,18 +38,21 @@ h1 {
   display: inline-block;
   margin: 8px;
   pointer-events: none;
+  border-radius: 5%;
 }
 
 .toprow{
   margin-top: 20px;
   padding: 4px;
   margin-bottom: 12px;
+  border-radius: 40%;
 }
 
 .bottomrow{
   margin-top: 50px;
   padding: 4px;
   margin-top: 19px;
+  border-radius: 40%;
 }
 
 .goal-right{
@@ -66,4 +80,19 @@ h1 {
 
 .noClick{
   pointer-events: none;
+}
+
+#button{
+  font-size: 20px;
+  color: purple;
+  background-color: white;
+  border: solid black 5px;
+  padding: 10px;
+  margin-top: 70px;
+  float:right;
+  margin-right: 40px;
+}
+
+@media (min-width: 1000px){
+
 }

@@ -15,18 +15,8 @@ var spot11 = $('#11');
 var spot12 = $('#12');
 var spot13 = $('#13');
 var goalLeft = $('#0');
+var winnerSpot = $('#winnerPlacement');
 
-// var imageUrl = "http://img08.deviantart.net/d017/i/2013/324/b/e/perhaps_it_s_a_marble_orb_png_by_manoluv-d6v0p50.png"
-//
-// $( ".box" ).on( "click", function () {
-//   console.log(this);
-//   $( this ).css({
-//     "background"            : "url(" + imageUrl + ")",
-//     "background-position"   : "center center",
-//     "background-repeat"     : "no-repeat",
-//     "background-size"       : "cover"
-//   })
-// })
 
 //for loop to click on each box in the array
 $(".box").each(function(index){
@@ -46,20 +36,22 @@ $(".box").each(function(index){
                    targetCount++; //(incrementing our target by 1 (can only place one stone at a time))
                    $("#" + targetId).text(targetCount); //placing our targetCount (the new amount of stones) in our targetId
 
+
             //skip other players goal + add two stones if pass the unlucky spot
                if(targetId === 0){
                   var goal = parseInt(goalLeft.text()); //setting a variable to the value (amount of stones) of player 2's goal
-                  var total = (goal - 1); //reduce player 2's goal by 1
+                  var total = (goal - 1); //reduce player 2's goal by 1 (this is basically having player 1 skip player 2's goal)
                   goalLeft.text(total); //setting player 2's goal new value
                   var unLucky = parseInt(spot13.text()); //setting a value to player 2's unlucky spot (the last spot before a players goal)
                   var unLuckyTotal = (unLucky + 1); //adding a second stone to player 2's unlucky spot
                   spot13.text(unLuckyTotal); //setting the new value of player 2's unlucky spot
                }
 
+
+
               //if the stone count goes over 14 - original spot value goes to 1
                 if (stone_count >= 14){
-                  $(this).text(1); //if more than 14 stones, the player is going to all the way around the board - thereby putting one stone
-                                  //in the well that they started in
+                  $(this).text(1); //if more than 14 stones, the player is going to all the way around the board - thereby putting one stone in the well that they started in
                 }else{
                   $(this).text(0); //if less than 14 stones, they are not going  all the way around the board so the starting well goes back to 0
                 }
@@ -67,7 +59,7 @@ $(".box").each(function(index){
             count++;
 
 
-          } else if($(this).hasClass("highlight") && $(this).hasClass("toprow")){
+          } else if($(this).hasClass("highlight") && $(this).hasClass("toprow")){ // checking the classes - same code as above (not DRY!!)
                var stone_count = parseInt($(this).text());
                  var id = parseInt($(this).attr('id'));
                  for(var i = stone_count; i >=1; i--){
@@ -76,22 +68,22 @@ $(".box").each(function(index){
                          targetCount++;
                          $("#" + targetId).text(targetCount);
 
-                 if(targetId === 7){
-                    var goal = parseInt(goalRight.text());
-                    var total = (goal - 1);
-                    goalRight.text(total);
-                    var unLucky = parseInt(spot6.text());
-                    var unLuckyTotal = (unLucky + 1);
-                    spot6.text(unLuckyTotal);
+                 if(targetId === 7){ //checking if the targetId is player 1's goal
+                    var goal = parseInt(goalRight.text()); // setting a varaible to get the amount of stones in player 1's goal
+                    var total = (goal - 1); // reducing player 1's goal by one (basically skipping the goal)
+                    goalRight.text(total); //setting player 1's goal to the new value
+                    var unLucky = parseInt(spot6.text());  //getting the value of player 1's unlucky spot
+                    var unLuckyTotal = (unLucky + 1); //adding a second stone to player 1's unlucky spot
+                    spot6.text(unLuckyTotal); // setting the new value of player 1's unlucky spot
                  }
 
-                if (stone_count >= 14){
-                  $(this).text(1);
+                if (stone_count >= 14){ //same code as above (checking if there are 14 or more stones in players well)
+                  $(this).text(1);    //not DRY!
                 } else {
                   $(this).text(0);
                 }
               }
-        count++;
+        count++;  //incrementing the stone count by one
       }
     }
   })
@@ -101,13 +93,15 @@ $(".box").each(function(index){
 //pick player - highlighed boxes determine turn - dont let highlight change
 var count = 0;
 $('.box').click(function() {
-  var selected = $('.bottomrow');
-  var notSelected = $('.toprow');
+  var selected = $('.bottomrow'); // setting a variable to the boxes in the bottom row
+  var notSelected = $('.toprow'); // setting a variable to the boxes in the top row
 
-     selected.toggleClass("highlight", count%2 === 0);
-     selected.toggleClass("noHighlight", count%2 !== 0);
-     notSelected.toggleClass("noHighlight", count%2 === 0);
-     notSelected.toggleClass("highlight", count%2 !== 0);
+     selected.toggleClass("highlight", count%2 === 0); //setting the bottomrow to class highlight when the count is even
+                                                      //highlight means the boxes are clickable & therefore a players turn
+     selected.toggleClass("noHighlight", count%2 !== 0); //setting the bottomrow to class noHighlight when the count is odd
+                                                        //no highlight means the boxes are unclickable - the function isnt running
+     notSelected.toggleClass("noHighlight", count%2 === 0); //setting the toprow to class noHighlight when count is even
+     notSelected.toggleClass("highlight", count%2 !== 0); //setting the toprow to class highlight when count is odd
 });
 
 
@@ -115,61 +109,61 @@ $('.box').click(function() {
 //find winner - add remaining stones to winners score
 $(".box").each(function(){
   $(this).click(function(){
-   if ((spot1.text() === '0') && (spot2.text() === '0') && (spot3.text() === '0')
+   if ((spot1.text() === '0') && (spot2.text() === '0') && (spot3.text() === '0') //checking if bottom rows stone count is 0
       && (spot4.text() === '0') && (spot5.text() === '0') && (spot6.text() === '0')) {
-      var a = parseInt(spot8.text());
+      var a = parseInt(spot8.text()); //taking the inner value of each box in the top row
       var b = parseInt(spot9.text());
       var c = parseInt(spot10.text());
       var d = parseInt(spot11.text());
       var e = parseInt(spot12.text());
       var f = parseInt(spot13.text());
-      var g = parseInt(goalRight.text());
-      var total = (a + b + c + d + e + f + g).toString();
-      goalRight.text(total);
-      spot8.text(0);
+      var g = parseInt(goalRight.text()); //taking inner value of player 1's goal
+      var total = (a + b + c + d + e + f + g).toString(); //adding all the inner values from the toprow together and adding it to player 1's goal (because player 1 empty their wells first and therfore get player 2's remaining stones)
+      goalRight.text(total); //setting player 1's goal to the new value
+      spot8.text(0); //setting the toprows inner values to 0
       spot9.text(0);
       spot10.text(0);
       spot11.text(0);
       spot12.text(0);
       spot13.text(0);
-          if(goalLeft.text() > goalRight.text()) {
-            alert("Player 2 Wins")
+          if(goalLeft.text() > goalRight.text()) { //if player 2 has more stones than player 1 = player 2 wins
+            winnerSpot.text("Player 2 Wins!!!");
             // window.location.reload(true);
           }
-          else if(goalLeft.text() < goalRight.text()) {
-            alert("Player 1 Wins")
+          else if(goalLeft.text() < goalRight.text()) { //if player 1 has more stones than player 2 = player 1 wins
+            winnerSpot.text("Player 1 Wins!!!");
             // window.location.reload(true);
           }else{
-            alert("Player 1 and Player 2 Tie")
+            winnerSpot.text("It's a Tie!!!"); //if equal amount of stones = tie!
             // window.location.reload(true);
           }
-  } else if ((spot8.text() === '0') && (spot9.text() === '0') && (spot10.text() === '0')
+  } else if ((spot8.text() === '0') && (spot9.text() === '0') && (spot10.text() === '0') //checking if toprow stone count is 0
       && (spot11.text() === '0') && (spot12.text() === '0') && (spot13.text() === '0')) {
-      var a = parseInt(spot1.text());
+      var a = parseInt(spot1.text());//taking the inner value of each box in the bottom row
       var b = parseInt(spot2.text());
       var c = parseInt(spot3.text());
       var d = parseInt(spot4.text());
       var e = parseInt(spot5.text());
       var f = parseInt(spot6.text());
-      var g = parseInt(goalLeft.text());
-      var total = parseInt(a + b + c + d + e + f + g);
-      goalLeft.text(total);
-      spot1.text(0);
+      var g = parseInt(goalLeft.text()); //taking inner value of player 2's goal
+      var total = parseInt(a + b + c + d + e + f + g);//adding all the inner values from the bottomrow together and adding it to player 2's goal
+      goalLeft.text(total); //setting player 2's goal to the new value
+      spot1.text(0);//setting the toprows inner values to 0
       spot2.text(0);
       spot3.text(0);
       spot4.text(0);
       spot5.text(0);
       spot6.text(0);
 
-      if(goalLeft.text() < goalRight.text()) {
-        alert("Player 1 Wins")
+      if(goalLeft.text() < goalRight.text()) { //if player 1 has more stones than player 2, player 1 wins
+        winnerSpot.text("Player 1 Wins!!!")
         // window.location.reload(true);
       }
-      else if(goalLeft.text() > goalRight.text()) {
-        alert("Player 2 Wins")
+      else if(goalLeft.text() > goalRight.text()) { //if player 2 has more stones than player 1, player 2 wins
+        winnerSpot.text("Player 2 Wins!!!")
         // window.location.reload(true);
       }else{
-        alert("Player 1 and Player 2 Tie")
+        winnerSpot.text("It's a Tie!!!") //if the scores are the same, the players tie!
         // window.location.reload(true);
       }
     }
@@ -177,9 +171,7 @@ $(".box").each(function(){
 })
 
 
-
-
 //button function to clear the board
 myFunction = function() {
-  document.location.href = '';
+  document.location.href = ''; //refresh the board
  }

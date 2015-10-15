@@ -1,66 +1,68 @@
 h1 {
-  color: #612061;
+  color: #2CA78A;
   text-align: center;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 55px;
+  margin-top: 25px;
 }
 
 .boardgameBoxes {
-  border-radius: 10px;
-  border: solid black 5px;
+  width: 1200px;
+  border-radius: 20px;
+  border: solid #514534 5px;
   margin-left: 25px;
   margin-right: 25px;
-  background: white;
+  background: #8C5039;
+  font-family: 'Quicksand', sans-serif;
 }
 
-@media ( max-width: 1200px) {
-  .box {
-    width: 50px;
-    height: 50px;
-  }
-}
 
 .box {
-  color: rgba(0, 0, 0, 1);
+  color: #2CA78A;
   cursor: pointer;
-  background-color: white;
   width: 100px;
   height: 100px;
-  border: black 2px solid;
+  border: #46342D 2px solid;
   display: inline-block;
   margin: 8px;
   text-align: center;
   font-size: 100px;
+
+
 }
 
 .goal{
-  background-color: white;
+  background-color: #46342D;
   width: 125px;
-  border: black 2px solid;
   display: inline-block;
-  margin: 8px;
+  margin: 25px;
   pointer-events: none;
-  border-radius: 5%;
+  border-radius: 45%;
 }
 
 .toprow{
   margin-top: 20px;
-  padding: 4px;
+  padding: 7px;
   margin-bottom: 12px;
-  border-radius: 40%;
+  border-radius: 50%;
+  background-color: #46342D;
 }
 
 .bottomrow{
   margin-top: 50px;
-  padding: 4px;
+  padding: 7px;
   margin-top: 19px;
-  border-radius: 40%;
+  border-radius: 50%;
+  background-color: #46342D;
 }
 
 .goal-right{
   float:right;
   height: 250px;
   margin-top: -111px;
-  margin-top: -123px;
+  margin-top: -127px;
   margin-right: 34px;
+  padding: 2px;
 }
 
 .goal-left{
@@ -68,14 +70,15 @@ h1 {
   height: 250px;
   margin-top: 21px;
   margin-right: 20px;
+  padding: 2px;
 }
 
 .highlight {
-   background: lightgrey;
+   background: #EADFCF;
 }
 
 .noHighlight{
-  background: white;
+  background: #46342D;
 }
 
 .noClick{
@@ -83,16 +86,31 @@ h1 {
 }
 
 #button{
+  font-family: 'Quicksand', sans-serif;
   font-size: 20px;
-  color: purple;
-  background-color: white;
-  border: solid black 5px;
+  border-radius: 20px;
+  color: #2CA78A;
+  background-color: #46342D;
+  border: solid #46342D 5px;
   padding: 10px;
-  margin-top: 70px;
-  float:right;
-  margin-right: 40px;
+  margin-top: 35px;
+  float: right;
+  margin-right: -155px;
+  width: 261px;
 }
 
-@media (min-width: 1000px){
-
+.winner{
+  font-family: 'Quicksand', sans-serif;
+  font-size: 50px;
+  text-align: center;
+  border-radius: 20px;
+  color: #2CA78A;
+  background-color: #46342D;
+  border: solid #46342D 5px;
+  padding: 10px;
+  margin-top: 20px;
+  width: 630px;
+  height: 50px;
+  float: left;
+  margin-left: -146px;
 }

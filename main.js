@@ -118,7 +118,7 @@ $(".box").each(function(){
       var e = parseInt(spot12.text());
       var f = parseInt(spot13.text());
       var g = parseInt(goalRight.text()); //taking inner value of player 1's goal
-      var total = (a + b + c + d + e + f + g).toString(); //adding all the inner values from the toprow together and adding it to player 1's goal (because player 1 empty their wells first and therfore get player 2's remaining stones)
+      var total = parseInt(a + b + c + d + e + f + g); //adding all the inner values from the toprow together and adding it to player 1's goal (because player 1 empty their wells first and therfore get player 2's remaining stones)
       goalRight.text(total); //setting player 1's goal to the new value
       spot8.text(0); //setting the toprows inner values to 0
       spot9.text(0);
@@ -126,17 +126,22 @@ $(".box").each(function(){
       spot11.text(0);
       spot12.text(0);
       spot13.text(0);
-          if(goalLeft.text() > goalRight.text()) { //if player 2 has more stones than player 1 = player 2 wins
+
+          if (parseInt(goalLeft.text()) > parseInt(goalRight.text())) { //if player 2 has more stones than player 1 = player 2 wins
+            console.log(this)
             winnerSpot.text("Player 2 Wins!!!");
-            console.log("a")
+            console.log("a goalLeft > goalRight")
           }
-          else if (goalLeft.text() < goalRight.text()) { //if player 1 has more stones than player 2 = player 1 wins
+          else if (parseInt(goalLeft.text()) < parseInt(goalRight.text())) { //if player 1 has more stones than player 2 = player 1 wins
+            console.log(this)
             winnerSpot.text("Player 1 Wins!!!");
-            console.log("b")
-          }else{
+            console.log("b goalLeft < goalRight")
+          } else {
+            console.log(this)
             winnerSpot.text("It's a Tie!!!"); //if equal amount of stones = tie!
-            console.log("c")
+            console.log("c goalLeft = goalRight")
           }
+
   } else if ((spot8.text() === '0') && (spot9.text() === '0') && (spot10.text() === '0') //checking if toprow stone count is 0
       && (spot11.text() === '0') && (spot12.text() === '0') && (spot13.text() === '0')) {
       var a = parseInt(spot1.text());//taking the inner value of each box in the bottom row
@@ -155,17 +160,20 @@ $(".box").each(function(){
       spot5.text(0);
       spot6.text(0);
 
-      if(goalLeft.text() < goalRight.text()) { //if player 1 has more stones than player 2, player 1 wins
-        winnerSpot.text("Player 1 Wins!!!");
-        console.log("d")
-      }
-      else if(goalLeft.text() > goalRight.text()) { //if player 2 has more stones than player 1, player 2 wins
-        winnerSpot.text("Player 2 Wins!!!");
-        console.log("e")
-      }else{
-        winnerSpot.text("It's a Tie!!!"); //if the scores are the same, the players tie!
-        console.log("f")
-      }
+          if(parseInt(goalLeft.text()) < parseInt(goalRight.text())) { //if player 1 has more stones than player 2, player 1 wins
+            console.log(this)
+            winnerSpot.text("Player 1 Wins!!!");
+            console.log("d goalLeft < goalRight")
+          }
+          else if(parseInt(goalLeft.text()) > parseInt(goalRight.text())) { //if player 2 has more stones than player 1, player 2 wins
+            console.log(this)
+            winnerSpot.text("Player 2 Wins!!!");
+            console.log("e goalLeft > goalRight")
+          } else {
+            console.log(this)
+            winnerSpot.text("It's a Tie!!!"); //if the scores are the same, the players tie!
+            console.log("f goalLeft = goalRight")
+          }
     }
   })
 })
